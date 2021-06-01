@@ -1,0 +1,15 @@
+# This is a clean Ansible task extracted from https://github.com/ansible-community/ansible-consul/commit/91efd4c95d03f269ab626a319d5f3e4058abca8b
+
+---
+# File: main.yml - Main tasks for Consul
+- name: Install python dependencies
+  when:
+    - consul_install_dependencies | bool
+  block:
+    - name: Install netaddr dependency on controlling host (virtualenv)
+      pip:
+        name: netaddr
+      delegate_to: 127.0.0.1
+      become: false
+      run_once: true
+      when: is_virtualenv is defined
