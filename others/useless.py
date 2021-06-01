@@ -2,3 +2,4 @@
 # by repominer when analyzing Ansible projects.
 
 print('Do not use me for the analysis of Ansible projects!')
+print('I get updated just to create a new commit to be discarded...')
