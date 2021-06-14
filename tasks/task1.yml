@@ -1,8 +1,9 @@
-# This is a failure-prone Ansible task extracted from https://github.com/ansible-community/ansible-consul/commit/91efd4c95d03f269ab626a319d5f3e4058abca8b
+# Moving first task name two spaces ahead to generate an invalid yaml.
+# This is to test yaml.YAMLError in mehods is_data_changed(), is_include_changed(), and is_service_changed()
 
 ---
 # File: main.yml - Main tasks for Consul
-- name: Install python dependencies
+  - name: Install python dependencies
   when:
     - consul_install_dependencies | bool
   block:
