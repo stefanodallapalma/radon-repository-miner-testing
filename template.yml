@@ -33,8 +33,4 @@ topology_template:
             mem_size: 1024 MB
             publish_ports:
                - protocol: tcp
-                 source: 5000
-
-  outputs:
-    endpoint: 
-      value: { concat: [ { get_attribute : [ marathon-job, load_balancer_ips, 0 ] }, ':', { get_attribute : [ docker_runtime, host, publish_ports, 0, target ] } ] }
+                 source: 5050
