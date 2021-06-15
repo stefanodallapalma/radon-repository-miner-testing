@@ -1,9 +1,11 @@
-# Moving first task name two spaces ahead to generate an invalid yaml.
-# This is to test yaml.YAMLError in mehods is_data_changed(), is_include_changed(), and is_service_changed()
+# This is to test fixes_syntax and fixes_documentation
 
 ---
+# To test fixes_dependency branch
+- include_tasks: roles/captiveportal/tasks/main.yml
+
 # File: main.yml - Main tasks for Consul
-  - name: Install python dependencies
+- name: Install python dependencies
   when:
     - consul_install_dependencies | bool
   block:
@@ -23,3 +25,7 @@
       become: false
       run_once: true
       when: is_virtualenv is defined
+
+# To test fixes_service branch
+- name: enable supervisord
+  service: name=supervisor enabled=yes
