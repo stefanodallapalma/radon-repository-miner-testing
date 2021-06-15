@@ -1,8 +1,6 @@
-# This is to test fixes_syntax and fixes_documentation
-
 ---
-# To test fixes_dependency branch
-- include_tasks: roles/captiveportal/tasks/main.yml
+- include_role:
+    name: captiveportal
 
 # File: main.yml - Main tasks for Consul
 - name: Install python dependencies
@@ -26,6 +24,5 @@
       run_once: true
       when: is_virtualenv is defined
 
-# To test fixes_service branch
 - name: enable supervisord
-  service: name=supervisor enabled=yes
+  service: name=supervisor enabled=yes use=service
