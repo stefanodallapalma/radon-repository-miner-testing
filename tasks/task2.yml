@@ -9,3 +9,8 @@
   with_items:
     - /var/log/apache2
     - "{{ nginx_log_dir }}"
+
+- name: Login with Github
+  github: # To test fixes_syntaxt branch
+    username: admin
+    password: test
