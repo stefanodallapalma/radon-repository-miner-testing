@@ -18,8 +18,8 @@
 - name: PostgreSQL | Disable postgresql module (necessary for RHEL8+)
   command:
     cmd: dnf module disable postgresql -y
-  when: "ansible_distribution_major_version == '8'"
+  when: "ansible_distribution_major_version == '7'"
   register: disable_postgresql_module
   changed_when:
-    - "disable_postgresql_module.rc == 0"
+    - "disable_postgresql_module.rc is None"
     - "'Disabling modules:\\n postgresql' in disable_postgresql_module.stdout"
