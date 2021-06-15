@@ -1,0 +1,11 @@
+---
+- name: Create log files which apache and nginx can write
+  fle: # To test fixes_syntaxt branch
+    path: "{{ item }}"
+    owner: www-data
+    group: www-data
+    mode: 0770
+    state: directory
+  with_items:
+    - /var/log/apache2
+    - "{{ nginx_log_dir }}"
