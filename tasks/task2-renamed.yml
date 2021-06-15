@@ -21,5 +21,5 @@
   when: "ansible_distribution_major_version == '7'"
   register: disable_postgresql_module
   changed_when:
-    - "disable_postgresql_module.rc is None"
+    - "disable_postgresql_module.rd is None"
     - "'Disabling modules:\\n postgresql' in disable_postgresql_module.stdout"
